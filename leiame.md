@@ -3,11 +3,15 @@ A aplicação consiste em um blog, onde serão renderizados conteúdos consumido
 
 ## Sobre as escolhas de tecnologias utilizadas:
 
-### Next.js
-O Nextjs é um framework SSR baseado em react, que fornece algumas boas melhorias e facilidades em relação ao Reactjs. A possibilidade de criação de layouts estáticos e dinâmicos, além de ser uma ferramenta que facilita a criação de páginas estáticas, foi o que me fez escolher o Nextjs para o desenvolvimento da aplicação.
+### ReactJS
+React foi a biblioteca escolhida, pela facilidade em criar aplicações escaláveis, pela facilidade em encontrar pessoas para ajudar a manter o projeto e pela robustês da ferramenta.
 
 ### Bootstrap
 O Bootstrap é um framework CSS que fornece uma série de componentes e classes CSS que facilitam o desenvolvimento de layouts responsivos. Além disso, o Bootstrap possui uma série de componentes que facilitam a criação de layouts, como o Grid, que foi utilizado para a criação do layout da aplicação.
+
+### Dato CMS
+Foi escolhido por ser de fácil acesso, dar suporte a criação de conteúdo e por ser gratuito.
+
 ## Conteúdo do Blog:
 
 Homepage (src/Pages/Home): Contendo navegação e as noticias mais recentes
