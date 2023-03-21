@@ -1,0 +1,38 @@
+.header{
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+}
+.navbar{
+  color: #ffffff;
+  padding: 0 1rem ;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1120px;
+  width: 100%;
+  .brand{
+    color: #33aa00;
+  }
+  ul{
+    display: flex;
+    li{
+      list-style: none;
+      padding-right: 1rem;
+      font-size: 1.2rem;
+      a{
+        color: #33aa00;;
+        text-decoration: none;
+        &:hover{
+          color: #33aa33;
+          &::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #33aa33;
+          }
+        }
+      }
+    }
+  }
+}
