@@ -8,12 +8,36 @@
   padding: 0 1rem ;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1120px;
   width: 100%;
+  .iconMenu{
+    display: none;
+    @media (max-width: 768px){
+      display: block;
+      font-size: 2rem;
+      color: #33aa00;
+    }
+  }
   .brand{
     color: #33aa00;
   }
   ul{
+    // media query mobile
+    @media (max-width: 768px){
+      display: none;
+      &.active{
+        display: block;
+        background-color: #f6f6f6;
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        z-index: 999;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        padding: 10px;
+        text-align: right;
+      }
+    }
     display: flex;
     li{
       list-style: none;
@@ -36,3 +60,4 @@
     }
   }
 }
+

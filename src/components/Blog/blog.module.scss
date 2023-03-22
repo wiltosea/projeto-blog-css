@@ -1,0 +1,11 @@
+.blogpost{
+  background-color: #f0f0f0;
+  margin: 2rem 1rem;
+  padding: 1rem;
+  box-shadow: 2px 2px 0.5rem #33333366;
+  .imagemDestaque{
+    // width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}

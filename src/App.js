@@ -7,7 +7,6 @@ function App() {
     <>
       <Navbar />
       <main className={styles.main}>
-        <h1>Blog</h1>
         <Blog />
       </main>
     </>

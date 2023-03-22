@@ -1,10 +1,26 @@
 import { useQuery } from 'graphql-hooks';
+import { Image } from 'react-datocms';
+import React from 'react';
+import styles from './blog.module.scss';
 
 const HOMEPAGE_QUERY = `query HomePage($limit: IntType) {
   allPosts(first: $limit) {
     id
     title
-    conteudo
+    imagemDestaque {
+      responsiveImage(imgixParams: { fit: crop, w: 1120, h: 300, auto: format }) {
+        srcSet
+        webpSrcSet
+        sizes
+        src
+        width
+        height
+        aspectRatio
+        alt
+        title
+        base64
+      }
+    }
     content{
       blocks
       value
@@ -39,32 +55,38 @@ function Blog() {
 
   return (
     <main>
-      {postArray.map((item) => {
-        return (
-          <div className="blogpost">
-            <h2 key={item.id}>{item.title}</h2>
-            <p>
-              Por: <strong>{item.author}</strong> - em:{' '}
-              <span>{handleDate(item._publishedAt)}</span>
-            </p>
-            {item.content.value.document.children.map((node) => {
-              return (
-                <>
-                  {node.type === 'paragraph' ? (
-                    node.children[0].value === '' ? (
-                      ''
-                    ) : (
-                      <p>{node.children[0].value}</p>
-                    )
+      {postArray.map((blogPost) => (
+        <article className={styles.blogpost}>
+          <h2 key={blogPost.id}>{blogPost.title}</h2>
+          {blogPost.imagemDestaque && (
+            <Image
+              data={blogPost.imagemDestaque.responsiveImage}
+              className={styles.imagemDestaque}
+            />
+          )}
+          <p>
+            Por: <strong>{blogPost.author}</strong>
+          </p>
+          {blogPost.content.value.document.children.map((node) => {
+            return (
+              <>
+                {node.type === 'paragraph' ? (
+                  node.children[0].value === '' ? (
+                    ''
                   ) : (
-                    <div></div>
-                  )}
-                </>
-              );
-            })}
-          </div>
-        );
-      })}
+                    <p>{node.children[0].value}</p>
+                  )
+                ) : (
+                  <div></div>
+                )}
+              </>
+            );
+          })}
+          <i>
+            Publicado em <span>{handleDate(blogPost._publishedAt)}</span>
+          </i>
+        </article>
+      ))}
     </main>
   );
 }
