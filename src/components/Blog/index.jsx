@@ -8,7 +8,7 @@ const HOMEPAGE_QUERY = `query HomePage($limit: IntType) {
     id
     title
     imagemDestaque {
-      responsiveImage(imgixParams: { fit: crop, w: 1120, h: 300, auto: format }) {
+      responsiveImage(imgixParams: { fit: crop, w: 1120, h: 600, auto: format }) {
         srcSet
         webpSrcSet
         sizes
@@ -25,7 +25,26 @@ const HOMEPAGE_QUERY = `query HomePage($limit: IntType) {
       blocks
       value
     }
-    author
+    author{
+      id
+      completeName
+      aboutMe
+      role
+      avatar {
+        responsiveImage(imgixParams: { fit: crop, w: 300, h: 300, auto: format }) {
+          srcSet
+          webpSrcSet
+          sizes
+          src
+          width
+          height
+          aspectRatio
+          alt
+          title
+          base64
+        }
+      }
+    }
     _status
     _firstPublishedAt
     _publishedAt
@@ -64,9 +83,20 @@ function Blog() {
               className={styles.imagemDestaque}
             />
           )}
-          <p>
-            Por: <strong>{blogPost.author}</strong>
-          </p>
+          <div className={styles.author}>
+            {blogPost.author.avatar && (
+              <Image
+                data={blogPost.author.avatar.responsiveImage}
+                className={styles.author_avatar}
+              />
+            )}
+            <div className={styles.author_line}>
+              <span className={styles.author_name}>
+                {blogPost.author.completeName}
+              </span>
+              <span className={styles.author_role}>{blogPost.author.role}</span>
+            </div>
+          </div>
           {blogPost.content.value.document.children.map((node) => {
             return (
               <>
@@ -77,7 +107,26 @@ function Blog() {
                     <p>{node.children[0].value}</p>
                   )
                 ) : (
-                  <div></div>
+                  ''
+                )}
+                {node.type === 'heading' ? (
+                  node.level === 1 ? (
+                    <h1>{node.children[0].value}</h1>
+                  ) : node.level === 2 ? (
+                    <h2>{node.children[0].value}</h2>
+                  ) : node.level === 3 ? (
+                    <h3>{node.children[0].value}</h3>
+                  ) : node.level === 4 ? (
+                    <h4>{node.children[0].value}</h4>
+                  ) : node.level === 5 ? (
+                    <h5>{node.children[0].value}</h5>
+                  ) : node.level === 6 ? (
+                    <h6>{node.children[0].value}</h6>
+                  ) : (
+                    <span>{node.children[0].value}</span>
+                  )
+                ) : (
+                  ''
                 )}
               </>
             );
