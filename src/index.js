@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.scss';
-import App from './App';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
+import { ApplicationRoutes } from './ApplicationRouter';
 
 const client = new GraphQLClient({
   url: 'https://graphql.datocms.com/',
@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ClientContext.Provider value={client}>
-      <App />
+      <ApplicationRoutes />
     </ClientContext.Provider>
   </React.StrictMode>,
 );
