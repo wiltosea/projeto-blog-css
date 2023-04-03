@@ -25,6 +25,12 @@
         text-decoration: none;
         margin: 0 1em;
         color: $base-white;
+        span{
+          margin-left: 0.5em;
+          @media (max-width: 768px) {
+            display: none;
+          }
+        }
       }
     }
     p{

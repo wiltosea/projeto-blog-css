@@ -30,7 +30,7 @@ O componente Card é responsável por renderizar os cards de posts. Ele recebe c
 
 ### Footer
 
-O componente Footer é responsável por renderizar o footer da aplicação. 
+O componente Footer é responsável por renderizar o footer da aplicação.
 
 ### NavBar
 
@@ -43,4 +43,3 @@ Este componente carrega a visualização padrão dos posts, que é a grid de car
 ### PostView
 
 É o componente que renderiza o post individual dentro da página Post. Ele recebe como props o título, a descrição, a imagem, conteúdo do post e informações do autor.
-
