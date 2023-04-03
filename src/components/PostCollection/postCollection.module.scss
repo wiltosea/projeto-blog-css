@@ -1,6 +1,14 @@
 @import "../../styles/variables.scss";
 
-.post_list{
+.postList{
   display: flex;
-  margin: 2rem 1rem;
+  justify-content: center;
+  .postListContainer{
+    max-width: 1120px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 1em;
+  }
 }

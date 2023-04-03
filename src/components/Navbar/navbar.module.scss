@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
 }
-.navbar{
+.headerNavbar{
   color: #ffffff;
   padding: 0 1rem ;
   display: flex;
@@ -11,50 +11,66 @@
   align-items: center;
   max-width: 1120px;
   width: 100%;
-  .iconMenu{
-    display: none;
-    @media (max-width: 768px){
-      display: block;
-      font-size: 2rem;
-      color: #33aa00;
-    }
+  a{
+    text-decoration: none;
   }
-  .brand{
+
+  .headerNavbarBrand{
     color: #33aa00;
+    text-decoration: none;
   }
-  ul{
-    // media query mobile
-    @media (max-width: 768px){
-      display: none;
-      &.active{
-        display: block;
-        background-color: #f6f6f6;
-        position: absolute;
-        right: 10px;
-        top: 50px;
-        z-index: 999;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        padding: 10px;
-        text-align: right;
+  .headerNavbarMenu{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    .headerNavbarMenuIcon{
+      // display: none;
+      display: block;
+      @media (max-width: 768px){
+        font-size: 2rem;
+        color: #33aa00;
       }
     }
-    display: flex;
-    li{
-      list-style: none;
-      padding-right: 1rem;
-      font-size: 1.2rem;
+    .headerNavbarMenuOpenInactive{
       a{
-        color: #33aa00;;
-        text-decoration: none;
+        padding: 1rem;
+        font-size: 1rem;
+        color: #333;
         &:hover{
-          color: #33aa33;
-          &::after{
-            content: "";
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: #33aa33;
-          }
+          background-color: #fff55b;
+        }
+      }
+      @media (max-width: 768px){
+        display: none;
+      }
+    }
+    .headerNavbarMenuOpenActive{
+      display: block;
+      background-color: white;
+      position: fixed;
+      z-index: 999999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      .headerNavbarMenuClose{
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 2rem;
+        color: #33aa00;
+      }
+      a{
+        padding: 1rem;
+        font-size: 1rem;
+        color: #333;
+        &:hover{
+          background-color: #fff55b;
         }
       }
     }

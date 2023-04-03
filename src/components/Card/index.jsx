@@ -1,23 +1,14 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './card.module.scss';
 import { Image } from 'react-datocms';
 
-export default function Card({ title, image, author, date, id }) {
+export default function Card({ title, image, id, abstract }) {
   return (
-    <div className={styles.blogpost_card}>
-      <h3 className={styles.blogpost_title}>{title}</h3>
-      {image && <Image data={image} className={styles.imagem_destaque} />}
-      <div className={styles.author}>
-        <div className={styles.author_line}>
-          <span className={styles.author_name}>{author}</span>{' '}
-          <i>
-            <span>{date}</span>
-          </i>
-        </div>
-      </div>
-
-      <Link to={`/post/${id}`} className={styles.link}>
-        Leia mais
+    <div className={styles.blogpostCard}>
+      <Link to={`/post/${id}`}>
+        {image && <Image data={image} className={styles.blocpostCardImage} />}
+        <h3 className={styles.blogpostCardTitle}>{title}</h3>
+        <p className={styles.abstract}>{abstract}</p>
       </Link>
     </div>
   );

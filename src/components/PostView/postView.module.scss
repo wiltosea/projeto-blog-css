@@ -1,0 +1,63 @@
+.postContainer{
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.postArticle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1120px;
+  .postArticleTitle{
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.postArticleAuthor {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 3.125em;
+  margin-bottom: 2em;
+  .postArticleAuthorAvatar{
+    width: 100px;
+  }
+  .postArticleAuthorNoAvatar{
+    width: 100px;
+    height: 100px;
+  }
+  .postArticleAuthorInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 1rem;
+  .postArticleAuthorInfoName{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .postArticleAuthorInfoRole{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #333;
+  }
+}
+}
+.postArticleBorder{
+  border: solid #efefeb;
+    border-width: 1px 0 0;
+    clear: both;
+    height: 0;
+    margin: 1.25rem 0 1.1875rem;
+}
+
+.postArticlePostedAt{
+  color: #7f8c8d;
+  font-size: 85%;
+}

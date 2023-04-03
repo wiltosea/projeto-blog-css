@@ -1,42 +1,55 @@
-
 @import "../../styles/variables.scss";
-.blogpost_card{
+
+.blogpostCard{
   background-color: #fff;
   padding: 1rem;
   box-shadow: $shadow;
-  max-width: 320px;
-  margin-right: 1em;
-  .imagem_destaque{
+  max-width: 309px;
+  margin: 1em;
+  a{
+    text-decoration: none;
+    border-color: #333;
+  }
+  .blogpostCardTitle{
+    font-size: 1.2em;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    &:after{
+      content: "";
+      display: block;
+      width: 20%;
+      height: 1px;
+      background-color: $base-color;
+      margin: 1rem 0;
+    }
+  }
+  hr{
+    color: #333;
+    max-width: 30%;
+    align-self: flex-start;
+  }
+  .abstract{
+    // font-size: 0.9em;
+    margin: 1rem 0;
+    color: #333;
+    max-height: 3rem;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: wrap;
+  }
+  .blocpostCardImage{
     border-radius: 0.5rem;
   }
-  .blogpost_title{
-    font-size: 1.5em;
-    margin: 1rem 0;
-    max-height: 1.5em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .author{
+  .blogpostCardAuthor{
     display: flex;
     align-items: center;
     margin: 1rem 0;
-    .author_avatar{
-      border-radius: 0.5em;
-      margin-right: 1rem;
-      width: 3em !important;
-    }
-    .author_line{ 
+    .blogpostCardAuthorLine{ 
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .author_name{
+      .blogpostCardAuthorLineName{
         font-weight: bold;
-      }
-      .author_role{
-        font-size: 0.8rem;
-        color: #666;
-        font-style: italic;
       }
     }
   }

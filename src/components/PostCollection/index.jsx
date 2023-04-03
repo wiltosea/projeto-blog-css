@@ -7,6 +7,7 @@ const HOMEPAGE_QUERY = `query HomePage($limit: IntType) {
   allPosts(first: $limit) {
     id
     title
+    abstract
     imagemDestaque {
       responsiveImage(imgixParams: { fit: crop, w: 1120, h: 600, auto: format }) {
         srcSet
@@ -42,26 +43,18 @@ function PostCollection() {
 
   const postJson = JSON.stringify(data.allPosts);
   const postArray = JSON.parse(postJson);
-  const handleDate = (date) => {
-    const newDate = new Date(date);
-    return newDate.toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-    });
-  };
-
   return (
-    <main className={styles.post_list}>
-      {postArray.map((blogPost) => (
-        <Card
-          title={blogPost.title}
-          image={blogPost.imagemDestaque.responsiveImage}
-          author={blogPost.author.completeName}
-          date={handleDate(blogPost._publishedAt)}
-          id={blogPost.id}
-        />
-      ))}
+    <main className={styles.postList}>
+      <container className={styles.postListContainer}>
+        {postArray.map((blogPost) => (
+          <Card
+            title={blogPost.title}
+            image={blogPost.imagemDestaque.responsiveImage}
+            id={blogPost.id}
+            abstract={blogPost.abstract}
+          />
+        ))}
+      </container>
     </main>
   );
 }

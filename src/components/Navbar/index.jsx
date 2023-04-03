@@ -8,24 +8,36 @@ export default function Navbar() {
 
   return (
     <div className={styles.header}>
-      <nav className={styles.navbar}>
-        <h1 className={styles.brand}>Sagrado Verde</h1>
-        <Icon
-          icon="ic:baseline-menu"
-          className={styles.iconMenu}
-          onClick={() => setMenuOpen(!menuOpen)}
-        />
-        <ul className={menuOpen ? styles.active : ''}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/">Blog</Link>
-          </li>
-          <li>
-            <a href="mailto:wilsontorresdesigner@gmail.com">Contato</a>
-          </li>
-        </ul>
+      <nav className={styles.headerNavbar}>
+        <Link to="/">
+          <h1 className={styles.headerNavbarBrand}>Sagrado Verde</h1>
+        </Link>
+        <div className={styles.headerNavbarMenu}>
+          <Icon
+            icon="ic:baseline-menu"
+            className={styles.headerNavbarMenuIcon}
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
+          <div
+            className={
+              menuOpen
+                ? styles.headerNavbarMenuOpenActive
+                : styles.headerNavbarMenuOpenInactive
+            }
+          >
+            <Icon
+              icon="ic:baseline-close"
+              onClick={() => setMenuOpen(false)}
+              className={styles.headerNavbarMenuClose}
+            />
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              <span>Home</span>
+            </Link>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              <span>Blog</span>
+            </Link>
+          </div>
+        </div>
       </nav>
     </div>
   );
