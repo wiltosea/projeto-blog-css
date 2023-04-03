@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# A Aplicação SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A aplicação consiste em um blog, onde serão renderizados conteúdos consumidos através de uma GraphQL que fornece dados de um HeadlessCMS DatoCMS.
+A aplicação foi desenvolvida utilizando o create-react-app, usando a biblioteca do react sem frameworks. Para o layout foi utilizado o SASS como pre-processador de CSS. Para a navegação entre as páginas foi utilizado o react-router-dom. Para a requisição dos dados foi utilizado o graphql-hooks e react-datocms, como sugestão da própria documentação do DatoCMS.
 
-## Available Scripts
+## Sobre as escolhas de tecnologias utilizadas
 
-In the project directory, you can run:
+### ReactJs
 
-### `npm start`
+ReactJs é uma das melhores bibliotecas para se trabalhar com SPA, possui boa documentação e excelente suporte da comunidade para qualquer dúvida que possa surgir. Além disso, o ReactJs é uma biblioteca que possui uma curva de aprendizado relativamente baixa, o que facilita o desenvolvimento de aplicações simples e complexas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### SASS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Inicialmente pensei em utilizar um framework CSS, mas a quantidade de componentes que seriam utilizados na aplicação não justificaria o uso de um framework. Por isso, optei por utilizar o SASS como pre-processador de CSS.
 
-### `npm test`
+- Estilos globais foram definidos no arquivo _global.scss, que é importado no arquivo index.scss.
+- Estilos específicos de cada componente foram definidos utilizando module scss, que são importados dentro de cada componente.
+- Variáveis globais foram definidas no arquivo variables.scss.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Conteúdo do Blog
 
-### `npm run build`
+Homepage (src/views/Home): Página carrega, inicialmente, os posts mais recentes. Foi separado do componente que renderiza os cards de posts pois, futuramente, será adicionada a função de sidebar.
+Post (src/view/Post): Página que renderiza o post individual.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Componentes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Card
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O componente Card é responsável por renderizar os cards de posts. Ele recebe como props o título, a descrição e a imagem.
 
-### `npm run eject`
+### Footer
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+O componente Footer é responsável por renderizar o footer da aplicação. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### NavBar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+O componente Header é responsável por renderizar o header da aplicação, com título e menu de navegação.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### PostCollection
 
-## Learn More
+Este componente carrega a visualização padrão dos posts, que é a grid de cards.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### PostView
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+É o componente que renderiza o post individual dentro da página Post. Ele recebe como props o título, a descrição, a imagem, conteúdo do post e informações do autor.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -6,6 +6,9 @@
   box-shadow: $shadow;
   max-width: 309px;
   margin: 1em;
+  &:hover{
+    box-shadow: $shadow-hover;
+  }
   a{
     text-decoration: none;
     border-color: #333;
